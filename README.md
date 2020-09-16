@@ -16,7 +16,7 @@ O projeto tem como objetivo dar suporte a equipe de nutricionistas da empresa Fi
 ## O projeto
  
 - Criar um banco de dados MySQL no Heroku: https://elements.heroku.com/addons/jawsdb
-- Criar uma REST API usando PHP, preferencia usando PHP CodeIgniter 3.1.9 ou superior;
+- Criar uma REST API usando PHP, preferência usando PHP CodeIgniter 3.1.9 ou superior;
 - Integrar a API com o banco de dados criado para persistir os dados
 - Desenvolver Testes Unitários
 
