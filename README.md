@@ -6,19 +6,21 @@ Nesse desafio trabalharemos no desenvolvimento de uma REST API para utilizar os 
 
 O projeto tem como objetivo dar suporte a equipe de nutricionistas da empresa Fitness Foods LC para que eles possam revisar de maneira rápida a informação nutricional dos alimentos que os usuários publicam pela aplicação móvel.
 
-### Instruções iniciais obrigatórias
-
-- Utilizar o seu github pessoal para publicar o desafio. Confirme que a visibilidade do projeto é pública (não esqueça de colocar no readme a referência a este challenge);
-- O projeto back-end deverá ser desenvolvido usando PHP
-- Documentação para configuração do projeto em ambientes de produção (como instalar, rodar e referências a libs usadas);
+### Antes de começar
  
+- Prepare o projeto para ser disponibilizado no Github, copiando o conteúdo deste repositório para o seu (ou utilize o fork do projeto e aponte para o Github). Confirme que a visibilidade do projeto é pública (não esqueça de colocar no readme a referência a este challenge);
+- O projeto deve utilizar a Linguagem específica na sua Vaga (caso esteja se candidatando). Por exempo: Python, R, Scala e entre outras;
+- Considere como deadline 5 dias a partir do início do desafio. Caso tenha sido convidado a realizar o teste e não seja possível concluir dentro deste período, avise a pessoa que o convidou para receber instruções sobre o que fazer.
+- Documentar todo o processo de investigação para o desenvolvimento da atividade (README.md no seu repositório); os resultados destas tarefas são tão importantes do que o seu processo de pensamento e decisões à medida que as completa, por isso tente documentar e apresentar os seus hipóteses e decisões na medida do possível.
 
 ## O projeto
  
-- Criar um banco de dados MySQL no Heroku: https://elements.heroku.com/addons/jawsdb
-- Criar uma REST API usando PHP, preferência usando CodeIgniter 3.1.9 ou superior;
-- Integrar a API com o banco de dados criado para persistir os dados
+- Criar um banco de dados MySQL;
+- Criar uma REST API usando PHP;
+- Integrar a API com o banco de dados criado para persistir os dados;
 - Desenvolver Testes Unitários
+
+Como sugestões, pode criar um banco de dados grátis **MongoDB** usando Atlas: https://www.mongodb.com/cloud/atlas ou banco de dados grátis **MySQL** no Heroku: https://elements.heroku.com/addons/jawsdb ou banco de dados grátis **Postgres** no Heroku: https://elements.heroku.com/addons/heroku-postgresql; (Recomendável usar Drivers oficiais para integração com o DB)
 
 ### Modelo de Dados:
 
@@ -87,8 +89,4 @@ Após essa etapa será marcado a apresentação/correção do projeto.
 
 ## Suporte
 
-Use a [nossa comunidade](https://coodesh.com/desenvolvedores#community) para tirar dúvidas sobre o processo ou envie um e-mail para contato@coodesh.com.
-
-
-
-
+Use a [nossa comunidade](https://discord.gg/rdXbEvjsWu) para tirar dúvidas sobre o processo ou envie uma mensagem diretamente a um especialista no chat da plataforma. 
