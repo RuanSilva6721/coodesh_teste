@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 interface ProductRepository{
 
-    public function store();
+    public function getAllProduct();
     public function depositConfirm(Request $request, $id);
     public function withdrawConfirm(Request $request, $id);
 

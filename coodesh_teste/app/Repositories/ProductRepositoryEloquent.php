@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class ProductRepositoryEloquent implements ProductRepository{
 
-    public function store(){
+    public function getAllProduct(){
 
         return  DB::transaction(function () {
             $BankAccount = new BankAccount;

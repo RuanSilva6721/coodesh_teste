@@ -7,18 +7,20 @@ use Illuminate\Http\Request;
 
 class ProductService
 {
-    private $BankAccountRepository;
-    public function __construct(BankAccountRepository $BankAccountRepository)
+    private $productRepository;
+    public function __construct(ProductRepository $productRepository)
     {
 
-        $this->BankAccountRepository = $BankAccountRepository;
+        $this->productRepository = $productRepository;
     }
 
-    public function store()
+    public function getAllProduct()
     {
 
-        return $this->BankAccountRepository->store();
+        return $this->productRepository->getAllProduct();
     }
+
+    
     public function depositConfirm(Request $request)
     {
         $data = json_encode(auth()->user()->BankAccount()->get());
