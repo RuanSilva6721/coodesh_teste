@@ -8,13 +8,13 @@ class ProductRepositoryEloquent implements ProductRepository{
 
     public function getAllProduct(){
         return  DB::transaction(function () {
-           return Product::paginate(10);
+           return Product::where('status', '<>', 'trash')->paginate(10);
          });
 
     }
     public function getProductCode($code){
         return DB::transaction(function () use ($code) {
-            return DB::table('products')->where('code', $code)->first();
+            return DB::table('products')->where('code', $code)->where('status', '<>', 'trash')->get();
          });
 
     }
