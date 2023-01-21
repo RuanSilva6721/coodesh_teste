@@ -19,22 +19,18 @@ class ProductService
 
         return $this->productRepository->getAllProduct();
     }
-
     
-    public function depositConfirm(Request $request)
+    public function getProductCode($code)
     {
-        $data = json_encode(auth()->user()->BankAccount()->get());
-        $obj = json_decode($data);
 
-        return $this->BankAccountRepository->depositConfirm($request, $obj[0]->id);
+        return $this->productRepository->getProductCode($code);
     }
 
-    public function withdrawConfirm(Request $request)
-    {
-        $data = json_encode(auth()->user()->BankAccount()->get());
-        $obj = json_decode($data);
-
-        return $this->BankAccountRepository->withdrawConfirm($request, $obj[0]->id);
+    public function updateProductCode(Request $request, $code){
+        return $this->productRepository->updateProductCode($request, $code);
+    }
+    public function deleteProductCode(Request $request, $code){
+        return $this->productRepository->deleteProductCode($request, $code);
     }
 
 }

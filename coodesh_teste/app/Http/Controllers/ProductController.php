@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Services\ProductService;
 use Exception;
+use Symfony\Component\HttpFoundation\Request;
 
 class ProductController extends Controller
 {
@@ -19,7 +20,37 @@ class ProductController extends Controller
     public function getAllProduct()
     {
         try {
-            $this->productService->getAllProduct();
+            return $this->productService->getAllProduct();
+
+        } catch (Exception $e) {
+          //  return
+        }
+
+    }
+    public function getProductCode($code)
+    {
+        try {
+            return $this->productService->getProductCode($code);
+
+        } catch (Exception $e) {
+          //  return
+        }
+
+    }
+    public function updateProductCode(Request $request, $code)
+    {
+        try {
+            return $this->productService->getProductCode($request, $code);
+
+        } catch (Exception $e) {
+          //  return
+        }
+
+    }
+    public function deleteProductCode(Request $request, $code)
+    {
+        try {
+            return $this->productService->deleteProductCode($request, $code);
 
         } catch (Exception $e) {
           //  return
@@ -27,33 +58,4 @@ class ProductController extends Controller
 
     }
 
-
-
-    public function store(StoreProductRequest $request)
-    {
-
-    }
-
-
-    public function show(Product $product)
-    {
-
-    }
-
-
-    public function edit(Product $product)
-    {
-
-    }
-
-
-    public function update(UpdateProductRequest $request, Product $product)
-    {
-
-    }
-
-    public function destroy(Product $product)
-    {
-
-    }
 }

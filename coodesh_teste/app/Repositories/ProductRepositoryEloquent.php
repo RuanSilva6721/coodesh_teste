@@ -7,69 +7,32 @@ use Illuminate\Support\Facades\DB;
 class ProductRepositoryEloquent implements ProductRepository{
 
     public function getAllProduct(){
-
         return  DB::transaction(function () {
-            $BankAccount = new BankAccount;
-            $user = auth()->user();
-            $BankAccount->counts = '2023'.rand(10000,99999);
-            $BankAccount->balance = 0;
-            $BankAccount->user_id = $user->id;
-
-            $BankAccount->save();
-
+           return Product::paginate(10);
          });
 
     }
-
-    public function depositConfirm(Request $request, $id){
-        $user = auth()->user();
-
-        return DB::transaction(function () use ($request, $id, $user) {
-
-            $log = new Log();
-        $BankAccount = BankAccount::find($id);
-        $data = $request->all();
-        if($data['MoneyDeposit']< 0){
-                $data['MoneyDeposit'] = 0;
-        }
-        $log->action = "depósito";
-        $log->date = date("Y/m/d");
-        $log->value =$data['MoneyDeposit'];
-        $log->user_id = $user->id;
-            $log->save();
-        $BankAccount->balance = $data['MoneyDeposit'] + $BankAccount->balance;
-        $BankAccount->update();
-
+    public function getProductCode($code){
+        return DB::transaction(function () use ($code) {
+            return DB::table('products')->where('code', $code)->first();
          });
 
     }
-    public function withdrawConfirm(Request $request, $id){
-        $user = auth()->user();
+    public function updateProductCode(Request $request, $code){
+        return DB::transaction(function () use ($request ,$code) {
+            $data = $request->all();
 
-        return  DB::transaction(function () use ($request, $id, $user) {
-            $log = new Log();
-        $BankAccount = BankAccount::find($id);
-        $data = $request->all();
+            return Product::where('code', $code)->update($data);
+ 
+         });
 
-        if($data['MoneyWithdraw'] > $BankAccount->balance  || $data['MoneyWithdraw']< 0){
-            DB::rollBack();
-            return redirect()->route('home')->with('msg2', 'Saldo insuficiente na conta!');
-
-        }else{
-            $log->action = "saque";
-            $log->date = date("Y/m/d");
-            $log->value =$data['MoneyWithdraw'];
-            $log->user_id = $user->id;
-                $log->save();
-
-            $BankAccount->balance =  $BankAccount->balance - $data['MoneyWithdraw'];
-            $BankAccount->update();
-            DB::commit();
-            return redirect()->route('home')->with('msg', 'Saque realizado com sucesso!');
-        }
-
-
-
+    }
+    public function deleteProductCode(Request $request, $code){
+        return DB::transaction(function () use ($request ,$code) {
+            $data = $request->all();
+            $data['status'] = 'trash';
+            return Product::where('code', $code)->update($data);
+ 
          });
 
     }
