@@ -23,7 +23,7 @@ class ProductController extends Controller
             return $this->productService->getAllProduct();
 
         } catch (Exception $e) {
-          //  return
+            return 'Caught exception: '.$e->getMessage();
         }
 
     }
@@ -33,7 +33,7 @@ class ProductController extends Controller
             return $this->productService->getProductCode($code);
 
         } catch (Exception $e) {
-          //  return
+            return 'Caught exception: '.$e->getMessage();
         }
 
     }
@@ -53,7 +53,7 @@ class ProductController extends Controller
             return $this->productService->deleteProductCode($request, $code);
 
         } catch (Exception $e) {
-          //  return
+            return 'Caught exception: '.$e->getMessage();
         }
 
     }
