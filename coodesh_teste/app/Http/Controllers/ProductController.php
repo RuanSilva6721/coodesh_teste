@@ -40,10 +40,10 @@ class ProductController extends Controller
     public function updateProductCode(Request $request, $code)
     {
         try {
-            return $this->productService->getProductCode($request, $code);
+            return $this->productService->updateProductCode($request, $code);
 
         } catch (Exception $e) {
-          //  return
+            return 'Caught exception: '.$e->getMessage();
         }
 
     }
