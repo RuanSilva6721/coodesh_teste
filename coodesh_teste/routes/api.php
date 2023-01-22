@@ -9,9 +9,7 @@ Route::get('/user', function (Request $request) {
     return User::all();
 });
 
-Route::get('/', function (Request $request) {
-    return ' Detalhes da API, se conexão leitura e escritura com a base de dados está OK, horário da última vez que o CRON foi executado, tempo online e uso de memória';
-});
+Route::get('/', [ProductController::class, 'index']);
 
 Route::get('/products', [ProductController::class, 'getAllProduct']);
 
